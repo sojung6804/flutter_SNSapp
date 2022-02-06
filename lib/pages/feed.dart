@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
-import 'package:sopia/store/store1.dart';
+import 'package:leesojung/store/store1.dart';
 
 class feed extends StatefulWidget {
   const feed({Key? key}) : super(key: key);
