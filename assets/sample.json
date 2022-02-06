@@ -1,0 +1,22 @@
+{
+  "jsonData":[
+  { "img": "https://w.namu.la/s/72890009d41b969f54bf2040adac0075930a021d0ae578ce841764c9b03b2193c188364a63af1fc9ceca7cec714b1f0a0b47215cc7a07fea1197a87cd0c526a37a8faede75a54494e04e15df8a0de331f4c602fbb3fa25f7df4a346aa8c1ea41",
+    "name": "리정",
+    "age": "24",
+    "team": "YGX",
+    "posting": "리정/ YGX / 본인 24살때 뭐하셨어요?"
+  },
+  { "img": "https://flexible.img.hani.co.kr/flexible/normal/970/1195/imgdb/original/2021/1112/9916366852961715.jpg",
+    "name": "아이키.",
+    "age": "33",
+    "team": "Hook",
+    "posting": "아이키/ 댄서/ 유죄인간"
+  },
+  { "img": "http://file3.instiz.net/data/cached_img/upload/2021/10/20/0/369b59e6b35f4ca5c8f137815452c95d.jpg",
+    "name": "케이데이.",
+    "age": "?",
+    "team": "프라우드먼.",
+    "posting": "케이데이 / 프라우드먼"
+  }
+]
+}
