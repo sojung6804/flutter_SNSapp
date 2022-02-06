@@ -9,13 +9,16 @@ class Store1 extends ChangeNotifier {
   var jsonData = [];
   var UserImage;
   var UserText;
+  var CP;
 
   createPost() {
     var myPost = {
       "img": UserImage,
       "name": UserText,
     };
-    jsonData.insert(0, myPost);
+    CP = myPost;
+    jsonData.insert(0, CP);
+    // jsonData.insert(0, myPost);
     notifyListeners();
   }
 
