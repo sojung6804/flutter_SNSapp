@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:leesojung/pages/contactsPage.dart';
 import 'package:leesojung/pages/feed.dart';
 import 'store/store1.dart';
-import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(

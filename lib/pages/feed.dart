@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:leesojung/pages/UserInputPage.dart';
 import 'package:provider/src/provider.dart';
 import 'package:leesojung/store/store1.dart';
+import 'package:image_picker/image_picker.dart';
 
 class feed extends StatefulWidget {
   const feed({Key? key}) : super(key: key);
@@ -18,10 +21,12 @@ class _feedState extends State<feed> {
         title: Text('피드'),
         actions: [
           IconButton(
-              onPressed: () {
+              onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (c) {
                   return UserInputPage();
                 }));
+                var picker = ImagePicker();
+                var image = await picker.pickImage(source: ImageSource.gallery);
               },
               icon: Icon(Icons.add))
         ],
