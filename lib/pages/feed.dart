@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leesojung/pages/UserInputPage.dart';
 import 'package:provider/src/provider.dart';
 import 'package:leesojung/store/store1.dart';
 
@@ -15,10 +16,18 @@ class _feedState extends State<feed> {
     return Scaffold(
       appBar: AppBar(
         title: Text('피드'),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (c) {
+                  return UserInputPage();
+                }));
+              },
+              icon: Icon(Icons.add))
+        ],
       ),
       body: ListView.builder(
-          itemCount: 3,
+          itemCount: context.watch<Store1>().jsonData.length,
           itemBuilder: (c, i) {
             return Column(children: [
               context.watch<Store1>().jsonData[i]["img"].runtimeType == String
