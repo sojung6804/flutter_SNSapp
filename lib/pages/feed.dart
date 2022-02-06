@@ -22,11 +22,16 @@ class _feedState extends State<feed> {
         actions: [
           IconButton(
               onPressed: () async {
-                Navigator.push(context, MaterialPageRoute(builder: (c) {
-                  return UserInputPage();
-                }));
                 var picker = ImagePicker();
-                var image = await picker.pickImage(source: ImageSource.gallery);
+                dynamic image =
+                    await picker.pickImage(source: ImageSource.gallery);
+                if (image != null) {
+                  dynamic ii = await File(image.path);
+                  context.read<Store1>().addUI(ii);
+                  Navigator.push(context, MaterialPageRoute(builder: (c) {
+                    return UserInputPage();
+                  }));
+                }
               },
               icon: Icon(Icons.add))
         ],
