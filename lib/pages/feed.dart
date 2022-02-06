@@ -28,10 +28,10 @@ class _feedState extends State<feed> {
                 if (image != null) {
                   dynamic ii = await File(image.path);
                   context.read<Store1>().addUI(ii);
-                  Navigator.push(context, MaterialPageRoute(builder: (c) {
-                    return UserInputPage();
-                  }));
                 }
+                Navigator.push(context, MaterialPageRoute(builder: (c) {
+                  return UserInputPage();
+                }));
               },
               icon: Icon(Icons.add))
         ],
