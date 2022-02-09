@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leesojung/store/store1.dart';
 
 class newProfile extends StatefulWidget {
   const newProfile({Key? key, this.pfimg}) : super(key: key);
@@ -8,13 +9,17 @@ class newProfile extends StatefulWidget {
 }
 
 class _newProfileState extends State<newProfile> {
+  var profileName = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
       children: [
         Image.file(widget.pfimg),
-        // TextField(onChanged: (text) {}),
+        TextField(
+          controller: profileName,
+        ),
         IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -22,6 +27,9 @@ class _newProfileState extends State<newProfile> {
             icon: Icon(Icons.close)),
         IconButton(
             onPressed: () {
+              firestore.collection('profile').add(
+                  {'name': profileName.text, 'img': widget.pfimg.toString()});
+
               Navigator.pop(context);
             },
             icon: Icon(Icons.send))
