@@ -33,10 +33,15 @@ class _contactsPageState extends State<contactsPage> {
         itemCount: fbData.length,
         itemBuilder: (c, i) {
           return ListTile(
-            leading: CircleAvatar(
-              radius: 35,
-              backgroundImage: NetworkImage(fbData[i]['img']),
-            ),
+            leading: fbData[i]["img"].runtimeType == String
+                ? CircleAvatar(
+                    radius: 35,
+                    backgroundImage: NetworkImage(fbData[i]['img']),
+                  )
+                : CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Colors.grey,
+                  ),
             title: Text(fbData[i]['name']),
             subtitle: Text(fbData[i]['age'].toString()),
           );
