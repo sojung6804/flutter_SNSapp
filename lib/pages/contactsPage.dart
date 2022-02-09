@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-final firestore = FirebaseFirestore.instance;
+import 'package:leesojung/store/store1.dart';
 
 class contactsPage extends StatefulWidget {
   const contactsPage({Key? key}) : super(key: key);
