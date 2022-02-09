@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:leesojung/store/store1.dart';
 import 'newProfile.dart';
 
@@ -27,6 +30,8 @@ class _contactsPageState extends State<contactsPage> {
     getData();
   }
 
+  var pfimg;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +39,21 @@ class _contactsPageState extends State<contactsPage> {
           title: Text('프로필'),
           actions: [
             IconButton(
-                onPressed: () {
+                onPressed: () async {
+                  var picker = ImagePicker();
+                  dynamic image =
+                      await picker.pickImage(source: ImageSource.gallery);
+                  if (image != null) {
+                    dynamic ii = File(image.path);
+                    setState(() {
+                      pfimg = ii;
+                    });
+                  }
+
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (c) => newProfile()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (c) => newProfile(pfimg: pfimg)));
                 },
                 icon: Icon(Icons.add))
           ],
