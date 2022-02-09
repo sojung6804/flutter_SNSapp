@@ -32,12 +32,14 @@ class _contactsPageState extends State<contactsPage> {
     return ListView.builder(
         itemCount: fbData.length,
         itemBuilder: (c, i) {
-          return Column(children: [
-            fbData[i]["img"].runtimeType == String
-                ? Image.network(fbData[i]["img"])
-                : Image.file(fbData[i]["img"]),
-            Text(fbData[i]["name"])
-          ]);
+          return ListTile(
+            leading: CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(fbData[i]['img']),
+            ),
+            title: Text(fbData[i]['name']),
+            subtitle: Text(fbData[i]['age'].toString()),
+          );
         });
   }
 }
