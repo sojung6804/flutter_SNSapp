@@ -11,11 +11,14 @@ class contactsPage extends StatefulWidget {
 }
 
 class _contactsPageState extends State<contactsPage> {
+  var fbData;
+
   getData() async {
-    var result = await firestore.collection('product').get();
-    for (var fb in result.docs) {
-      print(fb['name']);
-    }
+    var result = await firestore.collection('profile').get();
+    setState(() {
+      fbData = result.docs;
+    });
+    print(fbData);
   }
 
   @override
@@ -26,6 +29,15 @@ class _contactsPageState extends State<contactsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+        itemCount: fbData.length,
+        itemBuilder: (c, i) {
+          return Column(children: [
+            fbData[i]["img"].runtimeType == String
+                ? Image.network(fbData[i]["img"])
+                : Image.file(fbData[i]["img"]),
+            Text(fbData[i]["name"])
+          ]);
+        });
   }
 }
